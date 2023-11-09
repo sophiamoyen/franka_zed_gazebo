@@ -73,7 +73,7 @@ cube_urdf="""
         </collision>
         <visual>
             <geometry>
-              <mesh filename="package://ProRobMan/meshes/%NAME%.dae" scale='1 1 1'/>
+              <mesh filename="package://franka_zed_gazebo/meshes/%NAME%.dae" scale='1 1 1'/>
             </geometry>
         </visual>
     </link>
