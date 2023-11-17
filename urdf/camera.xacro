@@ -72,7 +72,7 @@
 
         <sensor name="zed2_left_raw_camera" type="camera">
             <pose> 0 0 0 0 0 0 </pose>
-            <visualize>true</visualize>
+            <visualize>false</visualize>
             <always_on>true</always_on>
             <update_rate>15</update_rate>
             <camera>
@@ -164,7 +164,7 @@
     <!-- Raw images (with lens distortion) -->
         <sensor name="zed2_right_raw_camera" type="camera">
             <pose> 0 0 0 0 0 0 </pose>
-            <visualize>true</visualize>
+            <visualize>false</visualize>
             <always_on>true</always_on>
             <update_rate>15</update_rate>
             <camera>
