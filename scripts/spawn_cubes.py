@@ -25,13 +25,39 @@ cube_sdf="""
         </inertia>
       </inertial>
     <collision name='collision'>
+      <max_contacts>10</max_contacts>
       <surface>
+        <contact>
+          <ode>
+            <max_vel>0</max_vel>
+            <min_depth>0.003</min_depth>
+          </ode>
+        </contact>
+        <!--NOTE: Uses dynamic friction of brick on a wood surface
+        see https://www.engineeringtoolbox.com/friction-coefficients-d_778.html
+        -->
         <friction>
           <ode>
-          <mu>0.6</mu> 
-          <mu2>0.6</mu2>
+            <mu>10</mu>
+            <mu2>10</mu2>
+            <fdir1>0 0 0</fdir1>
+            <slip1>0</slip1>
+            <slip2>0</slip2>
           </ode>
+          <torsional>
+            <coefficient>1</coefficient>
+            <patch_radius>0</patch_radius>
+            <surface_radius>0</surface_radius>
+            <use_patch_radius>1</use_patch_radius>
+            <ode>
+              <slip>0</slip>
+            </ode>
+          </torsional>
         </friction>
+        <bounce>
+          <restitution_coefficient>0</restitution_coefficient>
+          <threshold>1e+06</threshold>
+        </bounce>
       </surface>
       <geometry>
         <box>
@@ -79,13 +105,39 @@ cube_urdf="""
     </link>
     <gazebo>
       <collision name="%NAME%_collision">
+       <max_contacts>10</max_contacts>
         <surface>
+          <contact>
+            <ode>
+              <max_vel>0</max_vel>
+              <min_depth>0.003</min_depth>
+            </ode>
+          </contact>
+          <!--NOTE: Uses dynamic friction of brick on a wood surface
+          see https://www.engineeringtoolbox.com/friction-coefficients-d_778.html
+          -->
           <friction>
             <ode>
-              <mu>0.6</mu> 
-              <mu2>0.6</mu2>
+              <mu>10</mu>
+              <mu2>10</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
               </ode>
+            </torsional>
           </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
         </surface>
       </collision>
       <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
@@ -118,6 +170,8 @@ table_zlim=[0.1, 0.2]
 xpose=0.5
 ypose=0
 zpose=0.5
+
+
 for i in range(28):
   position=[xpose + random.uniform(*table_xlim),
             ypose + random.uniform(*table_ylim),
