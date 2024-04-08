@@ -4,13 +4,20 @@
   <xacro:include filename="$(find franka_description)/robots/common/franka_robot.xacro"/>
 
   <!-- 
-  Camera with less rotation relvative to the end effector
-  If you want the gripper to appear in the camera view, uncomment the followinf two lines and comment the one above
+  Camera with MORE rotation relative to the end effector
   -->
 
+  <xacro:include filename="$(find franka_zed_gazebo)/urdf/camera_no_gripper.xacro" /> 
+  
+
+  <!-- 
+  Camera with LESS rotation relative to the end effector
+  If you want the gripper to appear in the camera view, uncomment the following two lines and comment the one above
+  -->
+  <!-- 
   <xacro:include filename="$(find franka_zed_gazebo)/urdf/camera_gripper.xacro" /> 
   <xacro:include filename="$(find franka_zed_gazebo)/urdf/zed2_holder_panda_gripper.xacro" /> 
-
+  -->
 
   <xacro:arg name="arm_id" default="panda" />
 

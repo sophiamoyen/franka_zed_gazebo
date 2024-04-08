@@ -4,8 +4,7 @@
     <joint name="camera_joint" type="fixed">
         <parent link="panda_hand"/>
         <child link="camera_link"/>
-        <origin xyz="-0.097397 0 0.0274111" rpy="0 -0.824473 0"/>
-        <!-- rotation of =90 degress in pitch and +90 yaw from zed2 left optical frame -->
+        <origin xyz="-0.097397 0 0.0274111" rpy="0 -1.35 0"/>
     </joint>
 
     <link name="camera_link">
@@ -72,7 +71,7 @@
 
         <sensor name="zed2_left_raw_camera" type="camera">
             <pose> 0 0 0 0 0 0 </pose>
-            <visualize>false</visualize>
+            <visualize>true</visualize>
             <always_on>true</always_on>
             <update_rate>15</update_rate>
             <camera>
