@@ -4,18 +4,18 @@
 This repository contains the necessary files to launch a gazebo simulation of the Franka Panda set in the Pearl lab with the ZED2 camera attached to the end effector. 
 
 <p align="center">
-  <img src="images/gazebo.png" width="800"/>
+  <img src="images/gazebo.png" width="600"/>
 </p>
 
 ## Docker
 
-To launch the simulation, you will need a few packages including `libfranka`, `franka_ros`, MoveIt! and `panda_moveit_config`. You can upull our Docker already set up with the necessary packages:
+To launch the simulation, you will need a few packages including [`libfranka`](https://frankaemika.github.io/docs/installation_linux.html), [`franka_ros`](https://frankaemika.github.io/docs/installation_linux.html), [MoveIt!](https://ros-planning.github.io/moveit_tutorials/doc/getting_started/getting_started.html) and [`panda_moveit_config`](http://wiki.ros.org/panda_moveit_config). You can upull our Docker already set up with the necessary packages:
 
 ```
 docker pull docker pull 3liyounes/pearl_robots:franka_wo_nvidia
 ```
 
-If you will use the real ZED2 camera, you will need the Docker with cuda installation and the `zed_ros_wrapper` package:
+If you will use the real ZED2 camera, you will need the Docker with cuda installation and the [`zed_ros_wrapper`](https://www.stereolabs.com/docs/ros) package:
 ```
 docker pull docker pull 3liyounes/pearl_robots:franka
 ```
@@ -27,7 +27,7 @@ docker pull docker pull 3liyounes/pearl_robots:franka
 > Remember to allow any external programm X11 to access the GUI: 
 > ```
 > xhost +
-> `
+> ```
 
 ## Simulation
 
@@ -39,7 +39,7 @@ rosrun franka_zed_gazebo spawn_cubes.py
 ```
 
 <p align="center">
-  <img src="images/gazebo.png" width="800"/>
+  <img src="images/rviz.png" width="600"/>
 </p>
 
 > [!NOTE]
@@ -49,7 +49,7 @@ rosrun franka_zed_gazebo spawn_cubes.py
 > There are two mount files possible for the ZED2 camera, including the gripper on the field view, on the left image below, and not including it, on the right image below. You can select the one you desire to work in simulation by editing the file `urdf/panda_camera.urdf.xacro`.
 > 
 > <p align="center">
->  <img src="images/gripper.png" width="350"/> <img src="images/no_gripper.png" width="450"/> 
+>  <img src="images/gripper.png" width="350"/> <img src="images/no_gripper.png" width="350"/> 
 > </p>
 
 
@@ -71,6 +71,23 @@ roslaunch franka_zed_gazebo real_robot_zed2.launch robot_ip:=192.168.1.35
 
 >[!WARNING]
 > Remember to keep the emergency button close at all times and push it immediately if it doesn't behave as expected or when there is a risk to damage the robot or anything/anyone around it. Unpush it and unlock it on the desk panel to continue working.
+
+## Rosbags
+
+If you want to test your code on real camera data without accessing the lab, you can use the rosbags samples coollected by using the `rosbags` branch of this repository, where there are 4 samples of data available of the camera mounted on the real robot facing different configuration of cubes.
+
+```
+git clone -b rosbags https://github.com/iROSA-lab/franka_zed_gazebo.git
+```
+
+You can play the bag in a loop and access the topics for the rgb image, depth and pointcloud (sample 2). Remember to have the ROS master running in another terminal.
+```
+rosbag play -l sample_2.bag
+```
+
+<p align="center">
+  <img src="images/rosbags.png" width="600"/>
+</p>
 
 ### Notes
 
