@@ -163,13 +163,13 @@ def spawn(id, position, orientation):
 
 # the ranges for generating cubs
 # table size is 0.6 x 0.75
-table_xlim=[-0.1,0.1]
-table_ylim=[-0.2, 0.2]
+table_xlim=[-0.2,0.2]
+table_ylim=[-0.3, 0.3]
 table_zlim=[0.1, 0.2]
 # table surface pose
 xpose=0.5
 ypose=0
-zpose=0.5
+zpose=0
 
 
 for i in range(28):
