@@ -49,7 +49,7 @@ rosrun franka_zed_gazebo spawn_cubes.py
 > There are two mount files possible for the ZED2 camera, including the gripper on the field view, on the left image below, and not including it, on the right image below. You can select the one you desire to work in simulation by editing the file `urdf/panda_camera.urdf.xacro`.
 > 
 > <p align="center">
->  <img src="images/gripper.png" width="350"/> <img src="images/no_gripper.png" width="450"/> 
+>  <img src="images/gripper.png" width="300"/> <img src="images/no_gripper.png" width="300"/> 
 > </p>
 
 
