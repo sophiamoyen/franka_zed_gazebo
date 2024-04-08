@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot_ip" />
+  <arg name="load_gripper" />
+
+  <!-- Copied from franka_control.launch from panda_moveit_config package -->
+  <include file="$(find panda_moveit_config)/launch/franka_control.launch" pass_all_args="true" />]
+
+  <!-- Copied from zed2.launch -->
+  <include file="$(find zed_wrapper)/launch/zed2.launch"/>
+  
+  <!-- Transformation for camera WITH GRIPPER on the field of view  --> 
+  <!--
+  <node pkg="tf" type="static_transform_publisher" name="camera_link_broadcaster"
+        args="-0.11 0.056 0.035  0 -0.824473 0 panda_hand zed2_left_camera_frame 100" /> -->
+
+  <!-- Transformation for camera with NO GRIPPER on the field of view (30 degreed inclined) -->    
+  <node pkg="tf" type="static_transform_publisher" name="camera_link_broadcaster"
+        args="-0.11 0.056 0.035  0 -1.35 0 panda_hand zed2_left_camera_frame 100" />
+
+</launch>

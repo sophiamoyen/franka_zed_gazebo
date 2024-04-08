@@ -1,0 +1,1 @@
+If you want the gripper to appear on the field of view of the camera, then print the file `franka-ZED2-camera-holder`, remember to edit the transformation fo the camera on the launch file. If you dont want the gripper to appear in the field of view of the camera (recommended), then print the file `franla-steep-ZED2-camera-holder`.
